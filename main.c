@@ -2,5 +2,6 @@
 
 int main() {
     printf("Hello, MoThErFuCkEr!\n");
-    return 0;
+    printf("raz raz raz eto hardbass\n")
+	return 0;
 }

@@ -45,20 +45,21 @@ Definition of Valid Map:
 	- 
 	- 
 3. Process Array of Map:
-	- void	ft\_find\_square(char \*\*map\_array, int \*map\_info, int \*square\_info) // Function that takes simple map array, map info ([y size, x size]), and replaces square\_info[0], square\_info[1], square\_infor[2] with y, x, max square size values.
+	- void	ft\_find\_square(char \*\*map\_array, int \*map\_info, int \*square\_info) // Function that takes Simple Map Array, map info ([y size, x size]), and replaces square\_info[0], square\_info[1], square\_infor[2] with y, x, max square size values.
 4. Draw square on top Map Array
-	- 
+	- void	ft\_draw()
 5. Print square
 	- void	ft\_print\_res(char \*\*final\_map)
 
 # Structures
 
-typedef struct		s\_list
-{
-	char			**map;
-	int				**simple_map;
-	struct s\_list	*next;
-}				 	t\_list;
+typedef struct		s\_list  
+{  
+	char			**map;  
+	char			**map_details;
+	int				**simple_map;  
+	struct s\_list	*next;  
+}				 	t\_list;  
 
 
 
