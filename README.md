@@ -35,14 +35,38 @@ Definition of Valid Map:
 - Incase of Invalid map, print map error followed by line break.
 
 
-#Functions
+# Functions
 
 1. Utility Functions:
 	- void	ft\_put(char c)
-	- 
+	- t\_list \*ft\_make\_elem(char \*\*map)
+	- void	ft\_push\_back(t\_list \*\*head, t\_list \*element)
 2. Process Map:
 	- 
 	- 
 3. Process Array of Map:
 	- void	ft\_find\_square(char \*\*map\_array, int \*map\_info, int \*square\_info) // Function that takes simple map array, map info ([y size, x size]), and replaces square\_info[0], square\_info[1], square\_infor[2] with y, x, max square size values.
-4. df 
+4. Draw square on top Map Array
+	- 
+5. Print square
+	- void	ft\_print\_res(char \*\*final\_map)
+
+# Structures
+
+typedef struct		s\_list
+{
+	char			**map;
+	int				**simple_map;
+	struct s\_list	*next;
+}				 	t\_list;
+
+
+
+
+
+
+
+
+
+
+
