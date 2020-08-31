@@ -6,7 +6,7 @@
 /*   By: pfelipa <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 14:17:22 by pfelipa           #+#    #+#             */
-/*   Updated: 2020/08/31 14:51:08 by pfelipa          ###   ########.fr       */
+/*   Updated: 2020/08/31 22:22:37 by pfelipa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,14 +69,14 @@ void    ft_add_back(t_list **head, t_list *element)
     current->next = element;
 }
 
-t_list  *ft_create_elem(char **map, char **map_details)
+t_list  *ft_create_elem()
 {
     t_list *element;
 
     element = (t_list *)malloc(sizeof(t_list));
-    element->map = map;
+    element->map = NULL;
     element->simple_map = NULL; // replace with some function
-	element->map_details = map_details;
+	element->map_details = NULL;
     element->next = NULL;
     return (element);
 }

@@ -6,7 +6,7 @@
 /*   By: pfelipa <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 14:35:31 by pfelipa           #+#    #+#             */
-/*   Updated: 2020/08/31 14:42:33 by pfelipa          ###   ########.fr       */
+/*   Updated: 2020/08/31 22:22:43 by pfelipa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,11 @@ void    ft_emancipate(t_list *head)
 		free(prev->map_details);
         free(prev);
     }
+}
+
+int		ft_isnumb(char c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }

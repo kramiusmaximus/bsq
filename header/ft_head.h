@@ -6,7 +6,7 @@
 /*   By: pfelipa <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 14:14:47 by pfelipa           #+#    #+#             */
-/*   Updated: 2020/08/31 14:42:49 by pfelipa          ###   ########.fr       */
+/*   Updated: 2020/08/31 20:54:12 by pfelipa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ typedef struct 		s_list
 {  
 	char 			**map;  
 	int 			**simple_map;  
-	char 			**map_details;  
+	char 			*symbols;    // {empty, obstacle, full}
+  	int				*size;	     // {size y, size x}
 	struct s_list 	*next;  
 }					t_list;  
 
