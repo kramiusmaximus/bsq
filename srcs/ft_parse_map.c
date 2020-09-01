@@ -6,34 +6,12 @@
 /*   By: pfelipa <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 14:42:45 by pfelipa           #+#    #+#             */
-/*   Updated: 2020/09/01 15:17:11 by pfelipa          ###   ########.fr       */
+/*   Updated: 2020/09/01 21:04:29 by pfelipa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/ft_head.h"
 #include <stdio.h>
-
-
-int		ft_file_size(char *filename)
-{
-	int desc;
-	int file_size;
-	int b;
-	int nread;
-
-	file_size = 0;
-	if ((desc = open(filename, O_RDONLY)) < 0)
-		return (-1);
-	while ((nread = read(desc, &b, 1)) > 0)
-	{
-		file_size++;
-	}
-	if (nread == -1)
-		return (-1);
-	if ((desc = close(desc)) == -1)
-		return (-1);
-	return (file_size);
-}
 
 int		ft_process_header(char *buff, char *symbols, int *size, int len)
 {
@@ -50,7 +28,7 @@ int		ft_process_header(char *buff, char *symbols, int *size, int len)
 	while (ft_isnumb(buff[i]) && i < len - 3)
 		numstring[k++] = buff[i++];
 	numstring[k] = '\0';
-	while (i < len)
+	while (i < len && j < 3)
 		symbols[j++] = buff[i++];
 	if (buff[i] != '\n')
 		return (-1);
@@ -59,8 +37,6 @@ int		ft_process_header(char *buff, char *symbols, int *size, int len)
 	if ((size[0] = ft_atoi(numstring)) == 0)
 		return (-1);
 	size[1] = 0;
-	if (*buff != '\0')
-		return (-1);
 	return (1);
 }
 
@@ -94,14 +70,13 @@ int		ft_process_body(char *buff, char *symbols, int *size, char ***map)
 	*map = (char **)malloc(sizeof(char *) * size[0]);
 	while (*buff)
 	{
-		*map[y] = (char *)malloc(sizeof(char) * size[1]);
+		(*map)[y] = (char *)malloc(sizeof(char) * size[1]);
 		x = 0;
 		while (*buff && *buff != '\n' && x < size[1])
 		{
 			if (!ft_valid_char(*buff, symbols))
-				return (-1);
-			*map[y][x++] = *buff;
-			printf("%c", *buff);
+					return (-1);
+			(*map)[y][x++] = *buff;
 			buff++;
 		}
 		if (x != size[1])
@@ -110,8 +85,10 @@ int		ft_process_body(char *buff, char *symbols, int *size, char ***map)
 			buff++;
 		y++;
 	}
+	if (y != size[0])
+		return (-1);
 	return (1);
-}
+}	
 
 t_list		*ft_process_buff(char *buff)
 {
@@ -136,25 +113,67 @@ t_list		*ft_read_file(char *filename, int file_size)
 	int desc;
 	int nread;
 	
-
 	if ((desc = open(filename, O_RDONLY)) < 0)
-		return (NULL);
+		return (ft_create_elem(NULL, NULL, NULL));
 	if ((nread = read(desc, buff, file_size)) <= 0)
-		return (NULL);
+		return (ft_create_elem(NULL, NULL, NULL));
 	if (nread == -1)
-		return (NULL);
+		return (ft_create_elem(NULL, NULL, NULL));
 	if ((desc = close(desc)) == -1)
-		return (NULL);
-	printf("here\n");
+		return (ft_create_elem(NULL, NULL, NULL));
+	buff[file_size] = '\0';
 	return (ft_process_buff(buff));
+}
+
+t_list		*ft_parse_arguments(int n_maps, char **filenames)
+{
+	int i;
+	t_list *maps_list;
+
+	i = 0;
+
+	while (i < n_maps)
+	{
+		ft_add_back(&maps_list, ft_read_file(filenames[i],ft_file_size(filenames[i])));
+		i++;
+	}
+	return (maps_list);
+}
+
+void print_map(char **map, int *size)
+{
+    int x;
+    int y;
+    y = 0;
+    while (y < size[0])
+    {
+		x = 0;
+        while (x < size[1])
+        {
+        	printf("%c", map[y][x]);
+			x++;
+        }
+		printf("\n");
+        y++;
+    }
+}
+
+void	print_maps(t_list *maps_list)
+{
+	while (maps_list)
+	{
+		if (maps_list->map)
+			print_map(maps_list->map,maps_list->size);
+		else
+			printf("map error\n");
+		maps_list = maps_list->next;
+	}
 }
 
 int	main()
 {
-	char filename[] = "test_maps/map3";
-	int file_size;
-
-	if ((file_size = ft_file_size(filename)) == -1)
-		return (1);
-	ft_read_file(filename, file_size);
+	char *filename[] = {"test_maps/map1","test_maps/map2"};
+	t_list *maps_list;
+	maps_list = ft_parse_arguments(2, filename);
+	print_maps(maps_list);
 }

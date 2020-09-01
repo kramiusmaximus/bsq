@@ -6,7 +6,7 @@
 /*   By: pfelipa <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 14:14:47 by pfelipa           #+#    #+#             */
-/*   Updated: 2020/09/01 15:07:29 by pfelipa          ###   ########.fr       */
+/*   Updated: 2020/09/01 18:00:32 by pfelipa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 typedef struct 		s_list  
 {  
 	char 			**map;  
-	char 			**simple_map;  
 	char 			*symbols;    // {empty, obstacle, full}
   	int				*size;	     // {size y, size x}
 	struct s_list 	*next;  
@@ -38,4 +37,7 @@ int     ft_valid_symbols(char *symbols);
 int     ft_isprintable(char c);
 int     ft_valid_char(char c, char *symbols);
 int     ft_atoi(char *str);
+int     *ft_intarr(int *arr, int size);
+char    *ft_chararr(char *arr, int size);
+int     ft_file_size(char *filename);
 #endif

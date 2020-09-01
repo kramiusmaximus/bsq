@@ -6,7 +6,7 @@
 /*   By: pfelipa <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 14:17:22 by pfelipa           #+#    #+#             */
-/*   Updated: 2020/09/01 14:40:32 by pfelipa          ###   ########.fr       */
+/*   Updated: 2020/09/01 20:56:24 by pfelipa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,18 @@ t_list  *ft_create_elem(char **map, char *symbols, int *size)
     t_list *element;
 
     element = (t_list *)malloc(sizeof(t_list));
-	element->map = map;
-    element->simple_map = NULL; // replace with some function
-	element->symbols = symbols;
-	element->size = size;
-    element->next = NULL;
+	if (!map)
+	{
+		element->map = NULL;
+		element->symbols = NULL;
+		element->size = NULL;
+	}
+	else
+	{
+		element->map = map;
+		element->symbols = ft_chararr(symbols, 3);
+		element->size = ft_intarr(size, 2);
+	}	
+	element->next = NULL;
     return (element);
 }

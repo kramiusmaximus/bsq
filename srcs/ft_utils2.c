@@ -6,7 +6,7 @@
 /*   By: pfelipa <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 14:35:31 by pfelipa           #+#    #+#             */
-/*   Updated: 2020/09/01 15:17:15 by pfelipa          ###   ########.fr       */
+/*   Updated: 2020/09/01 21:04:32 by pfelipa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int		ft_valid_char(char c, char *symbols)
 	int i;
 
 	i = 0;
-	while (i < 3)
+	while (i < 2)
 		if (symbols[i++] == c)
 			return (1);
 	return (0);
