@@ -61,17 +61,17 @@ char  **search_square(char **map,int *map_size)
         temp = 0;
         while (check_square(map, sq_size, start) == 1)
         {
-            if ((start.x + sq_size) < big_side)
+            if ((start.x + sq_size) < big_side) // mozhest zdes mesto big_size dolzhno bit map_size[1] (x length) 
                 start.x++;
-            else if ((start.y + sq_size) < big_side)
+            else if ((start.y + sq_size) < big_side) // a zdes mesto big_size map_size[0] (y length)
                 start.y++;
                 start.x = temp;
-        }
+        }                                            // zdes beskonechniy loop pomoemu. Nuzhno sq_size--  zasunut vnutr 2go while loopa. Perviy vrode mozhno ubrat i temp tozhe. mesto start.x = temp, start.x = 0. On budet chitat kvadrati v takom zhe poryadki kak mi text chitaem da? 
         sq_size--;
     }
-    if (check_square(map, sq_size, start) == 0)
-        return (answer_map(map, sq_size, start));
-    return (map);
+    if (check_square(map, sq_size, start) == 0)     // mozhno zamenit na if (sq_size > 0) 
+        return (answer_map(map, sq_size, start));    
+    return (map); // return (NULL)
 }
 // Печатает карту-ответ
 void print_map(char **map, int x_len, int y_len)
