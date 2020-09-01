@@ -6,7 +6,7 @@
 /*   By: pfelipa <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 14:35:31 by pfelipa           #+#    #+#             */
-/*   Updated: 2020/09/01 21:04:32 by pfelipa          ###   ########.fr       */
+/*   Updated: 2020/09/01 23:04:20 by pfelipa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,13 @@ void    ft_emancipate(t_list *head)
     {
         prev = head;
         head = head->next;
+		/*if (prev->map)
+		{
+		
+		}*/ // to free or not to free?
+		free(prev->map);
+		free(prev->symbols);
+		free(prev->size);
         free(prev);  // function needs to be completed
     }
 }

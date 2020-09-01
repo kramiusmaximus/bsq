@@ -6,7 +6,7 @@
 /*   By: pfelipa <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 14:14:47 by pfelipa           #+#    #+#             */
-/*   Updated: 2020/09/01 18:00:32 by pfelipa          ###   ########.fr       */
+/*   Updated: 2020/09/01 23:04:57 by pfelipa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,24 @@ typedef struct 		s_list
 	struct s_list 	*next;  
 }					t_list;  
 
-int     ft_isnumb(char c);
-void    ft_putstr(char *str);
-int     ft_strlen(char *str);
-int     ft_strcmp(char *s1, char *s2);
-int     ft_stdin(void);
-void    ft_add_back(t_list **head, t_list *element);
-t_list  *ft_create_elem(char **map, char *symbols, int *size);
-void    ft_emancipate(t_list *head);
-int     ft_isnumb(char c);
-int     ft_valid_symbols(char *symbols);
-int     ft_isprintable(char c);
-int     ft_valid_char(char c, char *symbols);
-int     ft_atoi(char *str);
-int     *ft_intarr(int *arr, int size);
-char    *ft_chararr(char *arr, int size);
-int     ft_file_size(char *filename);
+int			ft_isnumb(char c);
+void		ft_putstr(char *str);
+int			ft_strlen(char *str);
+int			ft_strcmp(char *s1, char *s2);
+int			ft_stdin(void);
+void		ft_add_back(t_list **head, t_list *element);
+t_list		*ft_create_elem(char **map, char *symbols, int *size);
+void		ft_emancipate(t_list *head);
+int			ft_isnumb(char c);
+int			ft_valid_symbols(char *symbols);
+int			ft_isprintable(char c);
+int			ft_valid_char(char c, char *symbols);
+int			ft_atoi(char *str);
+int			*ft_intarr(int *arr, int size);
+char		*ft_chararr(char *arr, int size);
+int			ft_file_size(char *filename);
+t_list		*ft_parse_arguments(int n_maps, char **filenames);
+int			ft_linelen(char *buff);
+int			ft_process_body(char *buff, char *symbols, int *size, char ***map);
+int			ft_process_header(char *buff, char *symbols, int *size, int len)
 #endif

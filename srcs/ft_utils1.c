@@ -6,7 +6,7 @@
 /*   By: pfelipa <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 14:17:22 by pfelipa           #+#    #+#             */
-/*   Updated: 2020/09/01 20:56:24 by pfelipa          ###   ########.fr       */
+/*   Updated: 2020/09/01 22:50:40 by pfelipa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,19 +39,6 @@ int     ft_strcmp(char *s1, char *s2)
         s2++;
     }
     return (*s1 - *s2);
-}
-
-int     ft_stdin(void)
-{
-    char    buff[1024];
-    int     nread;
-
-    while (1)
-    {
-        nread = read(0, buff, 1024);
-        write(1, buff, nread);
-    }
-    return (1);
 }
 
 void    ft_add_back(t_list **head, t_list *element)
