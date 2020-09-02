@@ -6,11 +6,11 @@
 /*   By: pfelipa <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 14:17:22 by pfelipa           #+#    #+#             */
-/*   Updated: 2020/09/01 22:50:40 by pfelipa          ###   ########.fr       */
+/*   Updated: 2020/09/02 13:32:30 by pfelipa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/ft_head.h"
+#include "ft_head.h"
 
 void    ft_putstr(char *str)
 {
@@ -69,10 +69,11 @@ t_list  *ft_create_elem(char **map, char *symbols, int *size)
 	}
 	else
 	{
+
 		element->map = map;
 		element->symbols = ft_chararr(symbols, 3);
 		element->size = ft_intarr(size, 2);
-	}	
+	}
 	element->next = NULL;
     return (element);
 }

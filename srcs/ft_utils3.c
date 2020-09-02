@@ -6,11 +6,11 @@
 /*   By: pfelipa <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/01 14:57:38 by pfelipa           #+#    #+#             */
-/*   Updated: 2020/09/01 18:00:21 by pfelipa          ###   ########.fr       */
+/*   Updated: 2020/09/02 13:32:54 by pfelipa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/ft_head.h"
+#include "ft_head.h"
 
 int		ft_atoi(char *str)
 {

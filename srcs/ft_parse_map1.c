@@ -6,11 +6,11 @@
 /*   By: pfelipa <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 14:42:45 by pfelipa           #+#    #+#             */
-/*   Updated: 2020/09/01 23:04:32 by pfelipa          ###   ########.fr       */
+/*   Updated: 2020/09/02 13:31:48 by pfelipa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/ft_head.h"
+#include "ft_head.h"
 
 int			ft_process_header(char *buff, char *symbols, int *size, int len)
 {
@@ -39,8 +39,12 @@ int			ft_process_header(char *buff, char *symbols, int *size, int len)
 	return (1);
 }
 
-int			ft_loop(char **buff, char ***map, char *symbols, int *size)
+int			ft_loop(char *buff, char ***map, char *symbols, int *size)
 {
+	int y;
+	int x;
+
+	y = 0;
 	while (*buff)
 	{
 		(*map)[y] = (char *)malloc(sizeof(char) * size[1]);
@@ -102,6 +106,7 @@ t_list		*ft_parse_arguments(int n_maps, char **filenames)
 	int		i;
 	t_list	*maps_list;
 
+	maps_list = NULL;
 	i = 0;
 	while (i < n_maps)
 	{

@@ -6,7 +6,7 @@
 /*   By: pfelipa <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 14:14:47 by pfelipa           #+#    #+#             */
-/*   Updated: 2020/09/01 23:04:57 by pfelipa          ###   ########.fr       */
+/*   Updated: 2020/09/02 13:06:21 by pfelipa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int			ft_isnumb(char c);
 void		ft_putstr(char *str);
 int			ft_strlen(char *str);
 int			ft_strcmp(char *s1, char *s2);
-int			ft_stdin(void);
+void			ft_stdin(void);
 void		ft_add_back(t_list **head, t_list *element);
 t_list		*ft_create_elem(char **map, char *symbols, int *size);
 void		ft_emancipate(t_list *head);
@@ -43,5 +43,20 @@ int			ft_file_size(char *filename);
 t_list		*ft_parse_arguments(int n_maps, char **filenames);
 int			ft_linelen(char *buff);
 int			ft_process_body(char *buff, char *symbols, int *size, char ***map);
-int			ft_process_header(char *buff, char *symbols, int *size, int len)
+int			ft_process_header(char *buff, char *symbols, int *size, int len);
+int         ft_loop(char *buff, char ***map, char *symbols, int *size);
+t_list      *ft_process_buff(char *buff);
+void		ft_print_solutions(t_list *maps_list);
+
+struct coords
+{
+    int x;
+    int y;
+};
+
+int check_square(char **map, int size, struct coords start);
+char **answer_map(char **map, int size, struct coords start);
+char **search_square(char **map,int *map_size);
+void print_map(t_list *map_item);
+
 #endif

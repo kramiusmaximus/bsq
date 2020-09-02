@@ -6,11 +6,11 @@
 /*   By: pfelipa <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 14:35:31 by pfelipa           #+#    #+#             */
-/*   Updated: 2020/09/01 23:04:20 by pfelipa          ###   ########.fr       */
+/*   Updated: 2020/09/02 13:32:40 by pfelipa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/ft_head.h"
+#include "ft_head.h"
 
 void    ft_emancipate(t_list *head)
 {

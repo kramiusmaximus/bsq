@@ -1,5 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_square.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pfelipa <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/09/02 12:51:02 by pfelipa           #+#    #+#             */
+/*   Updated: 2020/09/02 13:40:05 by pfelipa          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include "print_square.h"
+#include "ft_head.h"
+
 // Проверка на препятсвия на предполагаемой области квадрата
 int check_square(char **map, int size, struct coords start){
     int x;
@@ -69,18 +81,23 @@ char  **search_square(char **map,int *map_size)
     return (NULL);
 }
 // Печатает карту-ответ
-void print_map(char **map, int *map_size)
+void print_map(t_list *map_item)
 {
     int x;
     int y;
-
+	
+	if (!(map_item->map))
+	{
+		ft_putstr("map error\n");
+		return ;
+	}
     y = 0;
-    while (y <= map_size[0])
+    while (y < map_item->size[0])
     {
         x = 0;
-        while (x <= map_size[1])
+        while (x < map_item->size[1])
         {
-            write(1, &map[y][x], 1);
+            write(1, &map_item->map[y][x], 1);
             x++;
         }
         write(1, "\n", 1);
