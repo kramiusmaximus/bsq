@@ -6,21 +6,21 @@
 /*   By: pfelipa <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 14:35:31 by pfelipa           #+#    #+#             */
-/*   Updated: 2020/09/02 15:47:50 by pfelipa          ###   ########.fr       */
+/*   Updated: 2020/09/02 17:25:51 by pfelipa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_head.h"
 
-void    ft_emancipate(t_list *head)
+void	ft_emancipate(t_list *head)
 {
-    t_list *prev;
-	int i;
+	t_list	*prev;
+	int		i;
 
-    while (head)
-    {
-        prev = head;
-        head = head->next;
+	while (head)
+	{
+		prev = head;
+		head = head->next;
 		if (prev->map)
 		{
 			i = 0;
@@ -30,7 +30,7 @@ void    ft_emancipate(t_list *head)
 		free(prev->map);
 		free(prev->symbols);
 		free(prev->size);
-        free(prev);
+		free(prev);
 	}
 }
 

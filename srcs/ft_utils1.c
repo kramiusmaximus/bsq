@@ -6,61 +6,61 @@
 /*   By: pfelipa <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 14:17:22 by pfelipa           #+#    #+#             */
-/*   Updated: 2020/09/02 13:32:30 by pfelipa          ###   ########.fr       */
+/*   Updated: 2020/09/02 17:29:27 by pfelipa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_head.h"
 
-void    ft_putstr(char *str)
+void	ft_putstr(char *str)
 {
-    while (*str)
-        write(1, str++, 1);
+	while (*str)
+		write(1, str++, 1);
 }
 
-int     ft_strlen(char *str)
+int		ft_strlen(char *str)
 {
-    int len;
+	int len;
 
-    len = 0;
-    while (*str)
-    {
-        str++;
-        len++;
-    }
-    return (len);
+	len = 0;
+	while (*str)
+	{
+		str++;
+		len++;
+	}
+	return (len);
 }
 
-int     ft_strcmp(char *s1, char *s2)
+int		ft_strcmp(char *s1, char *s2)
 {
-    while ((*s1) && (*s2) && (*s1 == *s2))
-    {
-        s1++;
-        s2++;
-    }
-    return (*s1 - *s2);
+	while ((*s1) && (*s2) && (*s1 == *s2))
+	{
+		s1++;
+		s2++;
+	}
+	return (*s1 - *s2);
 }
 
-void    ft_add_back(t_list **head, t_list *element)
+void	ft_add_back(t_list **head, t_list *element)
 {
-    t_list *current;
+	t_list *current;
 
-    if (!*head)
-    {
-        *head = element;
-        return ;
-    }
-    current = *head;
-    while (current->next)
-        current = current->next;
-    current->next = element;
+	if (!*head)
+	{
+		*head = element;
+		return ;
+	}
+	current = *head;
+	while (current->next)
+		current = current->next;
+	current->next = element;
 }
 
-t_list  *ft_create_elem(char **map, char *symbols, int *size)
+t_list	*ft_create_elem(char **map, char *symbols, int *size)
 {
-    t_list *element;
+	t_list *element;
 
-    element = (t_list *)malloc(sizeof(t_list));
+	element = (t_list *)malloc(sizeof(t_list));
 	if (!map)
 	{
 		element->map = NULL;
@@ -69,11 +69,10 @@ t_list  *ft_create_elem(char **map, char *symbols, int *size)
 	}
 	else
 	{
-
 		element->map = map;
 		element->symbols = ft_chararr(symbols, 3);
 		element->size = ft_intarr(size, 2);
 	}
 	element->next = NULL;
-    return (element);
+	return (element);
 }

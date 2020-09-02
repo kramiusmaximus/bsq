@@ -6,11 +6,12 @@
 /*   By: pfelipa <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 14:42:45 by pfelipa           #+#    #+#             */
-/*   Updated: 2020/09/02 13:31:48 by pfelipa          ###   ########.fr       */
+/*   Updated: 2020/09/02 18:56:32 by pfelipa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_head.h"
+#include <stdio.h>
 
 int			ft_process_header(char *buff, char *symbols, int *size, int len)
 {
@@ -57,8 +58,9 @@ int			ft_loop(char *buff, char ***map, char *symbols, int *size)
 		}
 		if (x != size[1])
 			return (-1);
-		if (*buff)
-			buff++;
+		if (*buff != '\n')
+			return (-1);
+		buff++;
 		y++;
 	}
 	if (y != size[0])

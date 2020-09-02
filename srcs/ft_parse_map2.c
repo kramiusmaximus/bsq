@@ -6,7 +6,7 @@
 /*   By: pfelipa <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/01 22:39:25 by pfelipa           #+#    #+#             */
-/*   Updated: 2020/09/02 15:30:50 by pfelipa          ###   ########.fr       */
+/*   Updated: 2020/09/02 19:08:02 by pfelipa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,20 +39,18 @@ int		ft_process_body(char *buff, char *symbols, int *size, char ***map)
 
 void	ft_stdin(void)
 {
-	char	buff[10001];
-	t_list  *map_item;
+	char			buff[10000];
+	t_list			*map_item;
+	struct s_coords	start;
+	int nread;
 	
-	read(0, buff, 10001);
+	start.x = 0;
+	start.y = 0;
+	nread = read(0, buff, 10000);
+	buff[nread] = '\0';
 	map_item = ft_process_buff(buff);
 	if (map_item->map)
-		search_square(map_item);
+		search_square(map_item, start);
 	print_map(map_item);
 	ft_emancipate(map_item);
 }
-
-
-
-
-
-
-

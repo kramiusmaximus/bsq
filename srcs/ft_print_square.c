@@ -6,13 +6,13 @@
 /*   By: pfelipa <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 12:51:02 by pfelipa           #+#    #+#             */
-/*   Updated: 2020/09/02 16:18:29 by qrigil           ###   ########.fr       */
+/*   Updated: 2020/09/02 17:38:59 by pfelipa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_head.h"
 
-int		check_square(t_list *map_item, int size, struct coords start)
+int		check_square(t_list *map_item, int size, struct s_coords start)
 {
 	int x;
 	int y;
@@ -32,7 +32,7 @@ int		check_square(t_list *map_item, int size, struct coords start)
 	return (0);
 }
 
-void	answer_map(t_list *map_item, int size, struct coords start)
+void	answer_map(t_list *map_item, int size, struct s_coords start)
 {
 	int x;
 	int y;
@@ -50,7 +50,7 @@ void	answer_map(t_list *map_item, int size, struct coords start)
 	}
 }
 
-void	search_square(t_list *map_item, struct coords start)
+void	search_square(t_list *map_item, struct s_coords start)
 {
 	int sq_size;
 	int *map_size;
@@ -79,7 +79,7 @@ void	search_square(t_list *map_item, struct coords start)
 		answer_map(map_item, sq_size, start);
 }
 
-void	search_from_low(t_list *map_item, struct coords start)
+void	search_from_low(t_list *map_item, struct s_coords start)
 {
 	int		sq_size;
 	int		*map_size;
