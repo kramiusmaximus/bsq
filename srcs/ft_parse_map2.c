@@ -6,7 +6,7 @@
 /*   By: pfelipa <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/01 22:39:25 by pfelipa           #+#    #+#             */
-/*   Updated: 2020/09/02 19:08:02 by pfelipa          ###   ########.fr       */
+/*   Updated: 2020/09/02 19:28:17 by pfelipa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ void	ft_stdin(void)
 	char			buff[10000];
 	t_list			*map_item;
 	struct s_coords	start;
-	int nread;
-	
+	int				nread;
+
 	start.x = 0;
 	start.y = 0;
 	nread = read(0, buff, 10000);
