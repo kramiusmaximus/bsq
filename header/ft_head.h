@@ -6,7 +6,7 @@
 /*   By: pfelipa <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 14:14:47 by pfelipa           #+#    #+#             */
-/*   Updated: 2020/09/02 13:06:21 by pfelipa          ###   ########.fr       */
+/*   Updated: 2020/09/02 15:04:43 by qrigil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ struct coords
     int y;
 };
 
-int check_square(char **map, int size, struct coords start);
-char **answer_map(char **map, int size, struct coords start);
-char **search_square(char **map,int *map_size);
+int check_square(t_list *map_item, int size, struct coords start);
+void answer_map(t_list *map_item, int size, struct coords start);
+void search_square(t_list *map_item);
 void print_map(t_list *map_item);
 
 #endif

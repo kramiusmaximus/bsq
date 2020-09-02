@@ -6,14 +6,14 @@
 /*   By: pfelipa <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 12:51:02 by pfelipa           #+#    #+#             */
-/*   Updated: 2020/09/02 13:40:05 by pfelipa          ###   ########.fr       */
+/*   Updated: 2020/09/02 15:17:19 by qrigil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_head.h"
 
 // Проверка на препятсвия на предполагаемой области квадрата
-int check_square(char **map, int size, struct coords start){
+int check_square(t_list *map_item, int size, struct coords start){
     int x;
     int y;
 
@@ -23,7 +23,7 @@ int check_square(char **map, int size, struct coords start){
         x = start.x;
         while (x < (size + start.x))
         {
-            if (map[y][x] != '0')
+            if (map_item->map[y][x] != map_item->symbols[0])
                 return (1);
             x++;
         }
@@ -32,7 +32,7 @@ int check_square(char **map, int size, struct coords start){
     return (0);
 }
 // Нанесение квадрата(ответ) на карту
-char **answer_map(char **map, int size, struct coords start) {
+void answer_map(t_list *map_item, int size, struct coords start) {
     int x;
     int y;
 
@@ -42,23 +42,24 @@ char **answer_map(char **map, int size, struct coords start) {
         x = start.x;
         while (x < (size + start.x))
         {
-            map[y][x] = 'X';
+            map_item->map[y][x] = map_item->symbols[2];
             x++;
         }
         y++;
     }
-    return (map);
 }
 // Ищет область для квадрата
-char  **search_square(char **map,int *map_size)
+void search_square(t_list *map_item)
 {
     int sq_size;
     struct coords start;
+	int *map_size;
 
+	map_size = map_item->size;
     start.x = 0;
     start.y = 0;
     sq_size = (map_size[0] < map_size[1]) ?  map_size[0] : map_size[1];
-    while (check_square(map, sq_size, start) != 0)
+    while (check_square(map_item, sq_size, start) != 0)
     {
         if ((start.x + sq_size) < map_size[1])
             start.x++;
@@ -71,14 +72,13 @@ char  **search_square(char **map,int *map_size)
         {
             sq_size--;
             if (sq_size == 0)
-                return (NULL);
+                break ;
             start.x = 0;
             start.y = 0;
         }
     }
-    if (check_square(map, sq_size, start) == 0)
-        return (answer_map(map, sq_size, start));
-    return (NULL);
+    if (check_square(map_item, sq_size, start) == 0)
+        answer_map(map_item, sq_size, start);
 }
 // Печатает карту-ответ
 void print_map(t_list *map_item)

@@ -6,7 +6,7 @@
 /*   By: pfelipa <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 14:42:54 by pfelipa           #+#    #+#             */
-/*   Updated: 2020/09/02 13:40:03 by pfelipa          ###   ########.fr       */
+/*   Updated: 2020/09/02 15:18:46 by qrigil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ void	ft_print_solutions(t_list *maps_list)
 	{
 		if (maps_list->map)
 		{
-			search_square();
-			answer_map();
+			search_square(maps_list);
 		}
 		print_map(maps_list);
 		maps_list = maps_list->next;
