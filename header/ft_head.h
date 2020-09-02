@@ -6,7 +6,7 @@
 /*   By: pfelipa <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 14:14:47 by pfelipa           #+#    #+#             */
-/*   Updated: 2020/09/02 15:04:43 by qrigil           ###   ########.fr       */
+/*   Updated: 2020/09/02 16:23:54 by qrigil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 # include <stdlib.h>
 # include <fcntl.h>
 
-typedef struct 		s_list  
-{  
-	char 			**map;  
-	char 			*symbols;    // {empty, obstacle, full}
-  	int				*size;	     // {size y, size x}
-	struct s_list 	*next;  
-}					t_list;  
+typedef struct		s_list
+{
+	char			**map;
+	char			*symbols;	// {empty, obstacle, full}
+	int				*size;		// {size y, size x}
+	struct s_list	*next;
+}					t_list;
 
 int			ft_isnumb(char c);
 void		ft_putstr(char *str);
@@ -44,19 +44,19 @@ t_list		*ft_parse_arguments(int n_maps, char **filenames);
 int			ft_linelen(char *buff);
 int			ft_process_body(char *buff, char *symbols, int *size, char ***map);
 int			ft_process_header(char *buff, char *symbols, int *size, int len);
-int         ft_loop(char *buff, char ***map, char *symbols, int *size);
-t_list      *ft_process_buff(char *buff);
+int			ft_loop(char *buff, char ***map, char *symbols, int *size);
+t_list		*ft_process_buff(char *buff);
 void		ft_print_solutions(t_list *maps_list);
 
-struct coords
+struct	coords
 {
-    int x;
-    int y;
+	int	x;
+	int	y;
 };
 
-int check_square(t_list *map_item, int size, struct coords start);
-void answer_map(t_list *map_item, int size, struct coords start);
-void search_square(t_list *map_item);
-void print_map(t_list *map_item);
+int			check_square(t_list *map_item, int size, struct coords start);
+void		answer_map(t_list *map_item, int size, struct coords start);
+void		search_square(t_list *map_item, struct coords start);
+void		print_map(t_list *map_item);
 
 #endif

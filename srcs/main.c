@@ -6,7 +6,7 @@
 /*   By: pfelipa <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 14:42:54 by pfelipa           #+#    #+#             */
-/*   Updated: 2020/09/02 15:18:46 by qrigil           ###   ########.fr       */
+/*   Updated: 2020/09/02 16:16:16 by qrigil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,15 @@
 
 void	ft_print_solutions(t_list *maps_list)
 {
+	struct coords start;
+
+	start.x = 0;
+	start.y = 0;
 	while (maps_list)
 	{
 		if (maps_list->map)
 		{
-			search_square(maps_list);
+			search_square(maps_list, start);
 		}
 		print_map(maps_list);
 		maps_list = maps_list->next;
