@@ -6,7 +6,6 @@
 /*   By: pfelipa <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 14:42:54 by pfelipa           #+#    #+#             */
-/*   Updated: 2020/09/02 16:16:16 by qrigil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +35,13 @@ void	ft_master(int nmaps, char **argv)
 	argv++;
 	maps_list = ft_parse_arguments(nmaps, argv);
 	ft_print_solutions(maps_list);
-	printf("successfully executed\n");
-	// emancipate(maps_list);
+	ft_emancipate(maps_list);
 }
 
 int		main(int argc, char **argv)
 {
 	if (argc == 1)
-	{
-		//ft_stdin();
-		return (0);
-	}
+		ft_stdin();
 	else if (argc > 1)
 		ft_master(argc - 1, argv);
 	return (0);
