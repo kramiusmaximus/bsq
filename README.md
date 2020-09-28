@@ -34,4 +34,4 @@ o......o.o...o.o.o
 then bsq should output:
 
 ![Screen]
-(<img src="/bsq/blob/master/Screenshot%202020-09-28%20at%2014.21.45.png?raw=true" alt="Screenshot 2020-09-28 at 14.21.45.png">)
+(<img src="Screenshot%202020-09-28%20at%2014.21.45.png?raw=true" alt="Screenshot 2020-09-28 at 14.21.45.png">)
