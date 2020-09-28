@@ -10,7 +10,7 @@ Using a terminal from within the BSQ folder:
 3. run the command "./bsq map"
 
 For instance if the "map" file contains:
-
+  
 18.ox 
 .o......o..oo.o.o.  
 ....o...o.oo.....o  
