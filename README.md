@@ -33,5 +33,5 @@ o......o.o...o.o.o
 
 then bsq should output:
 
-![Screen shot]
+![Screen]
 (https://github.com/kramiusmaximus/bsq/blob/master/Screenshot%202020-09-28%20at%2014.21.45.png?raw=true)
