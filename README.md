@@ -11,7 +11,7 @@ Using a terminal from within the BSQ folder:
 
 For instance if the "map" file contains:
   
-18.ox 
+18.ox  
 .o......o..oo.o.o.  
 ....o...o.oo.....o  
 o..o.....o.....ooo  
