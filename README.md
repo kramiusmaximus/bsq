@@ -1,36 +1,22 @@
 # bsq
 
-Using a terminal from within the BSQ folder:
+## Introduction
 
-1. create the executable by using the Makefile (run the command "make")
-2. generate a map filled with obstacles using the "mapGenerator" perl program (running the command "perl mapGenerator 18 18 9 > map" will generate a map that's 18x18 in size with an obstacle density of 9 and save it in a file called "map"). Note: maps generated with this generator use the following legend:
-'.' - empty tile
-'o' - obstacle
-'x' - square tile
-3. run the command "./bsq map"
+BSQ is an app which takes as argument a map containing obstacles, and free space, represented by ascii characters, and outputs to stdout the same map with the biggest open square space filled in. In other words, it takes the map, finds the biggest square that can fit in the free space in the map, and fills it in with a character different to that of free space and obstacles.
 
-For instance if the "map" file contains:
-  
-18.ox  
-.o......o..oo.o.o.  
-....o...o.oo.....o  
-o..o.....o.....ooo  
-.oo...............  
-o..o..........o...  
-............o.....  
-....o..oo....o.o..  
-..o..oo..o........  
-.o.......o....ooo.  
-...o..o....o.o..o.  
-..oo...o.....o..oo  
-oo......o....o...o  
-...o....oo..oo....  
-.oo..............o  
-o......o.o...o.o.o  
-........oo...o....  
-..o....o.......o..  
-.........oooo.....  
+## Usage
+1. Clone this git repository
+2. Compile the app by with `make`
+3. Generate a new map using perl by executing `perl map_gen.pl {x} {y} {z}`. x is the width of the map, y is the height, and z is the percent of the map which you want to be covered in obstacles.
+4. Execute the command `./BSQ {name of map}`
 
-then bsq should output:
-
-<img src="Screenshot%202020-09-28%20at%2014.21.45.png?raw=true" alt="Screenshot 2020-09-28 at 14.21.45.png">
+### Example
+If the map is the following:
+![map](other_files/map_pic.png)
+```
+'.' - empty tile\
+'o' - obstacle\
+'x' - square tile\
+```
+Inputing the path to this map file as an argument to the BSQ map should output the following to stdout:
+![solution](other_files/solution_pic.png)
