@@ -8,15 +8,15 @@ BSQ is an app which takes as argument a map containing obstacles, and free space
 1. Clone this git repository
 2. Compile the app by with `make`
 3. Generate a new map using perl by executing `perl map_gen.pl {x} {y} {z}`. x is the width of the map, y is the height, and z is the percent of the map which you want to be covered in obstacles.
-4. Execute the command `./BSQ {name of map}`
+4. Execute the command `./BSQ {path to map}`
 
 ### Example
-If the map is the following:
+Input map:\
 ![map](other_files/map_pic.png)
 ```
 '.' - empty tile\
 'o' - obstacle\
 'x' - square tile\
 ```
-Inputing the path to this map file as an argument to the BSQ map should output the following to stdout:
+Output map:\
 ![solution](other_files/solution_pic.png)
