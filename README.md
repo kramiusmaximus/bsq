@@ -14,9 +14,9 @@ BSQ is an app which takes as argument a map containing obstacles, and free space
 Input map:\
 ![map](other_files/map_pic.png)
 ```
-'.' - empty tile\
-'o' - obstacle\
-'x' - square tile\
+. - empty tile
+o - obstacle
+x - square tile
 ```
 Output map:\
 ![solution](other_files/solution_pic.png)
